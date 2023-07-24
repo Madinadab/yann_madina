@@ -1,0 +1,37 @@
+html{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+}
+.directeur{
+    border: 1px solide #000;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background: #f2f2f2f2;
+}
+.form{
+    background: #0000001f;
+    width: 500px;
+    padding: 25px;
+    margin-top: 70px;
+     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+h2{
+    color: blue;
+    text-align: center;
+}
+.button{
+    background: blue;
+    border: none;
+    padding: 7px 20px;
+    border-radius: 20px;
+    color: white;
+    
+}
+label{
+    font-weight: bold;
+    font-size: 15px;
+}
