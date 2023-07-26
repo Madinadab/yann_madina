@@ -12,7 +12,13 @@
             <div class="row">
                 <input type="text" name="id" style="display: none;" value="{{ $etudiants->id }}">
                 <div class="col-md-6">
-                    <img src="{{ asset('image/info.jpg') }}" alt="logo" class="rounded mx-auto d-block " style="width: 100%;">
+                    <!-- <img src="{{ asset('image/info.jpg') }}" alt="logo" class="rounded mx-auto d-block " style="width: 100%;"> -->
+                    <!-- image -->
+                    <div class="mt-4">
+                        <x-input-label for="image" :value="__('Profil')" />
+                        <x-text-input id="image" class="form-select block mt-1 w-full" type="file" name="image" :value="old('image')" required autofocus autocomplete="image" accept="image/jpg, image/png, image/jpeg" value="{{ $etudiants->nom }}" />
+                        <x-input-error :messages="$errors->get('image')" class="mt-2" />
+                    </div>
                     <!-- Nom -->
                     <div class="mt-4">
                         <x-input-label for="nom" :value="__('Nom')" />

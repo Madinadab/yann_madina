@@ -15,7 +15,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use PDF;
+
 
 class EtudiantController extends Controller
 {
@@ -46,21 +46,7 @@ class EtudiantController extends Controller
             Mail::to($etudiant->email)->send(new CarteMail($etudiant));
         }
     }
-    /*pdf de la carte */
-    // public function cartePDF()
-    // {
-    //     $etudiants = Etudiant::get();
-
-    //     $data = [
-    //         'title' => 'Voici votre carte etudiant',
-    //         'date' => date('m/d/Y'),
-    //         'etudiants' => $etudiants
-    //     ];
-    //     $pdf = PDF::loadview('detail', $data);
-
-    //     return $pdf->download('');
-    // }
-
+   
     /**
      * Afficher un formulaire d'étudiant.
      */
@@ -69,15 +55,16 @@ class EtudiantController extends Controller
         return view('page.formulaire');
     }
 
-    public function create()
-    {
-        return view('auth.register');
-    }
+    // public function create()
+    // {
+    //     return view('auth.register');
+    // }
 
     // Pour enregistrer
     public function traitement_register(Request $request)
     {
         $request->validate([
+            'image' => 'required',
             'nom' => 'required',
             'prenom' => 'required',
             'email' => 'required',
@@ -91,6 +78,7 @@ class EtudiantController extends Controller
         ]);
 
         $etudiant = new Etudiant();
+        $etudiant->image = $request->input('image');
         $etudiant->nom = $request->input('nom');
         $etudiant->prenom = $request->input('prenom');
         $etudiant->email = $request->input('email');
@@ -123,6 +111,7 @@ class EtudiantController extends Controller
     public function traitement_update(Request $Request)
     {
         $Request->validate([
+            'image' => 'required',
             'nom' => 'required',
             'prenom' => 'required',
             'email' => 'required|unique',
@@ -135,6 +124,7 @@ class EtudiantController extends Controller
             'annee_academique' => 'required',
         ]);
         $etudiants = Etudiant::find($Request->id);
+        $etudiants->image = $Request->image;
         $etudiants->nom = $Request->nom;
         $etudiants->prenom = $Request->prenom;
         $etudiants->email = $Request->email;
@@ -176,7 +166,6 @@ class EtudiantController extends Controller
     {
         return view('auth.secretaire');
     }
-
     // enregister les donnné//
     public function storesecretaire(Request $request): RedirectResponse
     {
@@ -186,7 +175,6 @@ class EtudiantController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
 
         ]);
-
         $user = User::createsecretaire([
             'name' => $request->name,
             'email' => $request->email,
@@ -194,9 +182,7 @@ class EtudiantController extends Controller
             'type' => isEmpty() ? 1 : 0,
 
         ]);
-
         event(new Registered($user));
-
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);

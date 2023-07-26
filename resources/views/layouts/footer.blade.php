@@ -6,13 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome/css/all.css') }}" rel="stylesheet">
-    <title>Document</title>
+    <style>
+        footer {
+            position: relative;
+            top: 300px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="bg-dark text-white text-center p-3 mt-5">
-        <p>© Copyright 2019. Tous droits Réservés. Service Public de l'Administration du Burkina Faso</p>
-    </div>
+    <footer>
+        <div class="bg-dark text-white text-center p-3 mt-5">
+            <p>© Copyright 2019. Tous droits Réservés. Service Public de l'Administration du Burkina Faso</p>
+        </div>
+    </footer>
 </body>
 
 </html>

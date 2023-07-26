@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\PDFController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -59,4 +60,5 @@ Route::get('/mail/{id}', [EtudiantController::class, 'mail'])->name('mail');
 Route::get('/secretairemail/{id}', [EtudiantController::class, 'secretairemail'])->name('secretairemail');
 
 
-Route::get('/cartePDF', [EtudiantController::class, 'cartePDF']);
+Route::get('/cartepdf', [PDFController::class, 'cartePDF']);
+

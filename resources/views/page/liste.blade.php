@@ -1,6 +1,11 @@
 <h2 class="font-semibold text-xl text-white dark:text-gray-200 leading-tight bg-success opacity-75 text-center p-2 dark:bg-gray-800 shadow">
     {{ __("L'ECOLE SUPERIEURE D'INFORMATIQUE DE L’UNIVERSITE NAZI BONI") }}
 </h2>
+<style>
+    body {
+        background-image: url('../image/blanc.jpeg');
+    }
+</style>
 
 
 @if (session('status'))
@@ -26,10 +31,8 @@
                 <th scope="col">N°</th>
                 <th scope="col">NOM</th>
                 <th scope="col">PRÉNOM</th>
-                <th scope="col">EMAIL</th>
                 <th scope="col">DATE NAISSANCE</th>
                 <th scope="col">GENRE</th>
-                <th scope="col">FILLIERE</th>
                 <th scope="col">NATIONALITE</th>
                 <th scope="col">NIVEAU D'ETUDE</th>
                 <th scope="col">CYCLE</th>
@@ -47,10 +50,8 @@
                 <td>{{ $i }}</td>
                 <td>{{ $etudiant->nom }}</td>
                 <td>{{ $etudiant->prenom }}</td>
-                <td>{{ $etudiant->email }}</td>
                 <td>{{ $etudiant->date_naissance }}</td>
                 <td>{{ $etudiant->genre }}</td>
-                <td>{{ $etudiant->filliere }}</td>
                 <td>{{ $etudiant->nationalite }}</td>
                 <td>{{ $etudiant->niveau_etude }}</td>
                 <td>{{ $etudiant->cycle }}</td>

@@ -22,10 +22,11 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-
-            <x-primary-button class="ml-4">
-                <i class="fa-solid fa-registered"></i> {{ __('Register') }}
-            </x-primary-button>
+            <a href="{{ route('secretairemail', $user->id) }}">
+                <x-primary-button class="ml-4">
+                    <i class="fa-solid fa-registered"></i> {{ __('Register') }}
+                </x-primary-button>
+            </a>
         </div>
     </form>
 </x-guest-layout>

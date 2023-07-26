@@ -36,6 +36,12 @@
             <div class="row">
                 <div class="col-md-6">
                     <!-- <img src="{{ asset('image/info.jpg') }}" alt="logo" class="rounded mx-auto d-block " style="width: 100%;"> -->
+                    <!-- image -->
+                    <div class="mt-4">
+                        <x-input-label for="image" :value="__('Profil')" />
+                        <x-text-input id="image" class="form-select block mt-1 w-full" type="file" name="image" required accept="image/*" />
+                        <x-input-error :messages="$errors->get('image')" class="mt-2" />
+                    </div>
                     <!-- Nom -->
                     <div class="mt-4">
                         <x-input-label for="nom" :value="__('Nom')" />
@@ -65,10 +71,10 @@
                     <!-- genre -->
                     <div class="mt-4">
                         <x-input-label for="genre" :value="__('Genre')" />
-                        <select class="select form-select" name="genre" id="filliere" required>
+                        <select class="select form-select" name="genre" id="genre" required>
                             <option value="">-- Sélectionnez --</option>
-                            <option value="masculin">Masculin</option>
-                            <option value="feminin">Feminin</option>
+                            <option value="M">Masculin</option>
+                            <option value="F">Feminin</option>
                         </select>
                         <x-input-error :messages="$errors->get('genre')" class="mt-2" />
                     </div>
@@ -95,9 +101,9 @@
                         <x-input-label for="niveau_etude" :value="__('Niveau Etude')" />
                         <select class="select form-select" id="niveau_etude" name="niveau_etude" required>
                             <option value="">-- Sélectionnez --</option>
-                            <option value="masculin">1ere Année</option>
-                            <option value="feminin">2e Année</option>
-                            <option value="feminin">3e Année</option>
+                            <option value="1ere Année">1ere Année</option>
+                            <option value="2e Année">2e Année</option>
+                            <option value="3e Année">3e Année</option>
                         </select>
                         <x-input-error :messages="$errors->get('niveau_etude')" class="mt-2" />
                     </div>
@@ -105,11 +111,11 @@
                     <!-- cycle -->
                     <div class="mt-4">
                         <x-input-label for="cycle" :value="__('Cycle')" />
-                        <select class="select form-select" id="cycle" type="text" name="cycle" required>
+                        <select class="select form-select" id="cycle" name="cycle" required>
                             <option value="">-- Sélectionnez --</option>
-                            <option value="masculin">Licence</option>
-                            <option value="feminin">Master</option>
-                            <option value="feminin">Doctorat</option>
+                            <option value="Licence">Licence</option>
+                            <option value="Master">Master</option>
+                            <option value="Doctorat">Doctorat</option>
                         </select>
                         <x-input-error :messages="$errors->get('cycle')" class="mt-2" />
                     </div>
